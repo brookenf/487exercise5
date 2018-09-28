@@ -2,7 +2,8 @@
 Write a function that buids an HTML table with the data below. The table should have four columns:
 first name, last name, position, and year. If the player is a Senior, her information should be in bold.
 */
-
+var html = ''; //initializing HTML for later
+var tableContent = document.getElementById('table-content');
 var players = [
   {
     first:'Angela',
@@ -48,7 +49,11 @@ var players = [
   }
 ];
 //Write your function here
-
+function buildTable(){
+  for(i = 0; i < players.length; i++){
+    console.log('Building a table');
+  }
+}
 /*
 EXTRA CREDIT CHALLENGE (5 POINTS): Write a function that compares the list above with the list below, finds the players that made the All-State team, and displays a message with the results: "Congratulations to Springfield's 2018 North Carolina All-State honorees: ____." Display the message in a div below the table.
 Hint: You need two loops, one of which will be 'nested'.*/
