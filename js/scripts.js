@@ -51,7 +51,6 @@ var players = [
 //Write your function here
 function buildTable(){
   //start with the table header
-  html += '<table>'
   html += '<tr><th>First</th><th>Last</th><th>Position</th><th>Year</th></tr>';
   /*Now write a for loop to populate the table using the data
   /include logic to make the text bold when the player is a senior.
@@ -64,11 +63,11 @@ function buildTable(){
     html += '<td>' + players[i].position + '</td>';
     html += '<td>' + players[i].year + '</td>';
     if(players[i].year === 'Senior'){
-      console.log('You\'re a Senior!');
+      console.log('You are a Senior!');
+      //find out how to ONLY get the seniors as bold
     }
   html += '</tr>';
   }
-  html += '</table>';
   //building the HTML
   tableContent.innerHTML = html;
 }//end of the buildTable function
@@ -77,6 +76,8 @@ buildTable();
 /*
 EXTRA CREDIT CHALLENGE (5 POINTS): Write a function that compares the list above with the list below, finds the players that made the All-State team, and displays a message with the results: "Congratulations to Springfield's 2018 North Carolina All-State honorees: ____." Display the message in a div below the table.
 Hint: You need two loops, one of which will be 'nested'.*/
+var congrats = document.getElementById('all-star');
+var msg = '';
 var allStars = [
   {
     first:'Melanie',
@@ -121,3 +122,16 @@ var allStars = [
   school: 'Springfield High School'
   }
 ];
+
+//the function to make the bottom message work
+//write the function
+function congratsMessage(){
+  msg += 'Congratulations to Springfield\'s 2018 North Carolina All-State honorees: ';
+  for(i = 0; i < allStars.length; i++){
+    console.log(allStars[i].first);
+
+  }
+
+  congrats.innerHTML = msg;
+}
+congratsMessage();
