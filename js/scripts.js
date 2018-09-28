@@ -51,19 +51,25 @@ var players = [
 //Write your function here
 function buildTable(){
   //start with the table header
+  html += '<table>'
   html += '<tr><th>First</th><th>Last</th><th>Position</th><th>Year</th></tr>';
-
+  /*Now write a for loop to populate the table using the data
+  /include logic to make the text bold when the player is a senior.
+  Write the loop here*/
   html += '<tr>';
   for(i = 0; i < players.length; i++){
-    console.log('Building a table');
-    html += '<td>' + players[i].first + '</td>' + '<td>' + players[i].last + '</td>' + '<td>' + players[i].position + '</td>' + '<td>' + players[i].year;
-    html += '</td>'
+    console.log(players[i].first);
+    html += '<td>' + players[i].first + '</td>';
+    html += '<td>' + players[i].last + '</td>';
+    html += '<td>' + players[i].position + '</td>';
+    html += '<td>' + players[i].year + '</td>';
     if(players[i].year === 'Senior'){
       console.log('You\'re a Senior!');
     }
-  }//end of the for loop
   html += '</tr>';
-
+  }
+  html += '</table>';
+  //building the HTML
   tableContent.innerHTML = html;
 }//end of the buildTable function
 
