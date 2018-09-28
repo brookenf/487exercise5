@@ -50,10 +50,18 @@ var players = [
 ];
 //Write your function here
 function buildTable(){
+  //start with the table header
+  html += '<tr><th>First</th><th>Last</th><th>Position</th><th>Year</th></tr>';
   for(i = 0; i < players.length; i++){
     console.log('Building a table');
-  }
-}
+    if(players[i].year === 'Senior'){
+      console.log('You\'re a Senior!');
+    }
+  }//end of the for loop
+  tableContent.innerHTML = html;
+}//end of the buildTable function
+
+buildTable();
 /*
 EXTRA CREDIT CHALLENGE (5 POINTS): Write a function that compares the list above with the list below, finds the players that made the All-State team, and displays a message with the results: "Congratulations to Springfield's 2018 North Carolina All-State honorees: ____." Display the message in a div below the table.
 Hint: You need two loops, one of which will be 'nested'.*/
