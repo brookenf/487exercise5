@@ -52,12 +52,18 @@ var players = [
 function buildTable(){
   //start with the table header
   html += '<tr><th>First</th><th>Last</th><th>Position</th><th>Year</th></tr>';
+
+  html += '<tr>';
   for(i = 0; i < players.length; i++){
     console.log('Building a table');
+    html += '<td>' + players[i].first + '</td>' + '<td>' + players[i].last + '</td>' + '<td>' + players[i].position + '</td>' + '<td>' + players[i].year;
+    html += '</td>'
     if(players[i].year === 'Senior'){
       console.log('You\'re a Senior!');
     }
   }//end of the for loop
+  html += '</tr>';
+
   tableContent.innerHTML = html;
 }//end of the buildTable function
 
