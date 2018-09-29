@@ -1,8 +1,7 @@
-/*
-Write a function that buids an HTML table with the data below. The table should have four columns:
-first name, last name, position, and year. If the player is a Senior, her information should be in bold.
-*/
-var html = ''; //initializing HTML for later
+//initialize a variable for the HTML content your going to build
+var html ='';
+var i;
+//get the empty table content area
 var tableContent = document.getElementById('table-content');
 var players = [
   {
@@ -48,31 +47,41 @@ var players = [
   year: 'Junior'
   }
 ];
-//Write your function here
+
+//building the table through JS
 function buildTable(){
   //start with the table header
   html += '<tr><th>First</th><th>Last</th><th>Position</th><th>Year</th></tr>';
   /*Now write a for loop to populate the table using the data
   /include logic to make the text bold when the player is a senior.
   Write the loop here*/
-  html += '<tr>';
   for(i = 0; i < players.length; i++){
     console.log(players[i].first);
-    html += '<td>' + players[i].first + '</td>';
-    html += '<td>' + players[i].last + '</td>';
-    html += '<td>' + players[i].position + '</td>';
-    html += '<td>' + players[i].year + '</td>';
-    if(players[i].year === 'Senior'){
+    var senior = players[i].year == 'Senior';
+    if(senior){
       console.log('You are a Senior!');
-      //find out how to ONLY get the seniors as bold
+      html += '<tr>';
+      html += '<td><strong>' + players[i].first + '</strong></td>';
+      html += '<td><strong>' + players[i].last + '</strong></td>';
+      html += '<td><strong>' + players[i].position + '</strong></td>';
+      html += '<td><strong>' + players[i].year + '</strong></td>';
+      html += '</tr>';
+    }else{
+      html += '<tr>';
+      html += '<td>' + players[i].first + '</td>';
+      html += '<td>' + players[i].last + '</td>';
+      html += '<td>' + players[i].position + '</td>';
+      html += '<td>' + players[i].year + '</td>';
+      html += '</tr>';
     }
-  html += '</tr>';
-  }
+  }//closing the for loop
   //building the HTML
   tableContent.innerHTML = html;
 }//end of the buildTable function
 
 buildTable();
+
+
 /*
 EXTRA CREDIT CHALLENGE (5 POINTS): Write a function that compares the list above with the list below, finds the players that made the All-State team, and displays a message with the results: "Congratulations to Springfield's 2018 North Carolina All-State honorees: ____." Display the message in a div below the table.
 Hint: You need two loops, one of which will be 'nested'.*/
@@ -136,8 +145,7 @@ function congratsMessage(){
       }//closing the if/else
     }//closing the for loop
   }//closing the for loop
-  msg += 'Congratulations to Springfield\'s 2018 North Carolina All-State honorees: ' + '<br>' + allStarName;
+  msg += 'Congratulations to Springfield\'s 2018 North Carolina All-State honorees: ' + '<br>' +allStarName;
   congrats.innerHTML = msg;
 }
-
 congratsMessage();
