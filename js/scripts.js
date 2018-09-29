@@ -145,7 +145,7 @@ function congratsMessage(){
       }//closing the if/else
     }//closing the for loop
   }//closing the for loop
-  msg += 'Congratulations to Springfield\'s 2018 North Carolina All-State honorees: ' + '<br>' +allStarName;
+  msg += '<strong>Congratulations to Springfield\'s 2018 North Carolina All-State honorees: </strong>' + '<br>' +allStarName;
   congrats.innerHTML = msg;
 }
 congratsMessage();
