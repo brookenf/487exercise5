@@ -76,8 +76,10 @@ buildTable();
 /*
 EXTRA CREDIT CHALLENGE (5 POINTS): Write a function that compares the list above with the list below, finds the players that made the All-State team, and displays a message with the results: "Congratulations to Springfield's 2018 North Carolina All-State honorees: ____." Display the message in a div below the table.
 Hint: You need two loops, one of which will be 'nested'.*/
-var congrats = document.getElementById('all-star');
 var msg = '';
+var allStarName = '';
+var j;
+var congrats = document.getElementById('all-star');
 var allStars = [
   {
     first:'Melanie',
@@ -123,15 +125,19 @@ var allStars = [
   }
 ];
 
-//the function to make the bottom message work
 //write the function
 function congratsMessage(){
-  msg += 'Congratulations to Springfield\'s 2018 North Carolina All-State honorees: ';
-  for(i = 0; i < allStars.length; i++){
-    console.log(allStars[i].first);
-
-  }
-
+  for(var j = 0; j < allStars.length; j++){
+    console.log(allStars[j].first);
+    for(i = 0; i <players.length; i++){
+      if(allStars[j].first == players[i].first){
+        console.log('Congrats Springfield Tigers!');
+        allStarName += players[i].first + ' ' + players[i].last +'<br>';
+      }//closing the if/else
+    }//closing the for loop
+  }//closing the for loop
+  msg += 'Congratulations to Springfield\'s 2018 North Carolina All-State honorees: ' + '<br>' + allStarName;
   congrats.innerHTML = msg;
 }
+
 congratsMessage();
